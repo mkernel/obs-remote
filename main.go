@@ -58,7 +58,7 @@ func httpHandler(w http.ResponseWriter, r *http.Request) {
 		toggle("Gamecam", "Grid")
 	}
 	if r.URL.Path == "/api/toggle/face" {
-		toggle("Gamecam", "Facetime Camera")
+		toggle("Gamecam", "Face")
 	}
 	http.Redirect(w, r, "/public/index.html", 302)
 }
