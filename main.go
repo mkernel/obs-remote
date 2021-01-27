@@ -31,8 +31,8 @@ func httpHandler(w http.ResponseWriter, r *http.Request) {
 		req.Send(client)
 		req.Receive()
 	}
-	if r.URL.Path == "/api/scene/score" {
-		req := obsws.NewSetCurrentSceneRequest("Fullscreen Scoreboard")
+	if r.URL.Path == "/api/scene/crew" {
+		req := obsws.NewSetCurrentSceneRequest("Crewcam")
 		req.Send(client)
 		req.Receive()
 	}
@@ -46,8 +46,8 @@ func httpHandler(w http.ResponseWriter, r *http.Request) {
 		req.Send(client)
 		req.Receive()
 	}
-	if r.URL.Path == "/api/toggle/score" {
-		toggle("Gamecam", "Scoreboard")
+	if r.URL.Path == "/api/toggle/crew" {
+		toggle("Gamecam", "Crew")
 	}
 	if r.URL.Path == "/api/toggle/grid" {
 		toggle("Gamecam", "Grid")
