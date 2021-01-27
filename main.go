@@ -41,6 +41,11 @@ func httpHandler(w http.ResponseWriter, r *http.Request) {
 		req.Send(client)
 		req.Receive()
 	}
+	if r.URL.Path == "/api/scene/mobile" {
+		req := obsws.NewSetCurrentSceneRequest("Phonecam")
+		req.Send(client)
+		req.Receive()
+	}
 	if r.URL.Path == "/api/scene/face" {
 		req := obsws.NewSetCurrentSceneRequest("Facecam")
 		req.Send(client)
