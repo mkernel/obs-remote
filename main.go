@@ -80,7 +80,7 @@ func toggle(scene string, item string) {
 
 	} else {
 		nreq := obsws.NewSetSceneItemPropertiesRequest(
-			"Gamecam", "Scoreboard",
+			scene, item,
 			data.PositionX, data.PositionY,
 			data.PositionAlignment, data.Rotation,
 			data.ScaleX, data.ScaleY, data.CropTop,
