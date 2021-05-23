@@ -10,7 +10,7 @@ import (
 var client obsws.Client
 
 func main() {
-	client = obsws.Client{Host: "localhost", Port: 4444}
+	client = obsws.Client{Host: "defiant.local", Port: 4444}
 	if err := client.Connect(); err != nil {
 		log.Fatal(err)
 	}
@@ -55,6 +55,9 @@ func httpHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path == "/api/toggle/face" {
 		toggle("Gamecam", "Facetime Camera")
 	}
+	if r.URL.Path == "/api/toggle/dice" {
+		toggle("Gamecam", "dicecam")
+	}
 	http.Redirect(w, r, "/public/index.html", 302)
 }
 
@@ -75,7 +78,7 @@ func toggle(scene string, item string) {
 
 	} else {
 		nreq := obsws.NewSetSceneItemPropertiesRequest(
-			"Gamecam", "Scoreboard",
+			scene, item,
 			data.PositionX, data.PositionY,
 			data.PositionAlignment, data.Rotation,
 			data.ScaleX, data.ScaleY, data.CropTop,
